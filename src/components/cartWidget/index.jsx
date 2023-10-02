@@ -1,9 +1,14 @@
 import React from 'react';
 import { PiShoppingCartSimple } from 'react-icons/pi';
 
-class CartWidget extends React.Component {
-  render() {
-    return <div className='icon'><PiShoppingCartSimple/></div> 
+const CartWidget = ({ cartCount }) => {
+
+  return(
+    <div className='icon'>
+      <PiShoppingCartSimple/>
+     {cartCount > 0 && <span className='cartItemCount'>{cartCount}</span>}
+    </div> 
+  )
   }
-}
+
  export { CartWidget }

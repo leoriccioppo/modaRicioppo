@@ -1,7 +1,9 @@
 import React from 'react';
+import { ItemCount } from '../counter/ItemCount';
 
 
 const ItemListContainer = () =>{
+
     return (
        <div>
         <p>
@@ -11,7 +13,9 @@ const ItemListContainer = () =>{
             quos mollitia excepturi temporibus sint quisquam ducimus, 
             delectus inventore alias pariatur. 
             Quaerat fuga illum quibusdam possimus.
+            
         </p>
+        <ItemCount stock={5}/>
        </div>
     )
 }
