@@ -1,7 +1,7 @@
 import React from 'react';
 import { PiShoppingCartSimple } from 'react-icons/pi';
 
-const CartWidget = ({ cartCount }) => {
+const CartWidget = () => {
 
   return(
     <div className='icon'>
