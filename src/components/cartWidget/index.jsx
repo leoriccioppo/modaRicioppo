@@ -6,7 +6,6 @@ const CartWidget = ({ cartCount }) => {
   return(
     <div className='icon'>
       <PiShoppingCartSimple/>
-     {cartCount > 0 && <span className='cartItemCount'>{cartCount}</span>}
     </div> 
   )
   }
