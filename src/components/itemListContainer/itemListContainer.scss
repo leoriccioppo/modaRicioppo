@@ -1,0 +1,22 @@
+.item {
+    max-width: 125px;  /* Define a largura máxima do item */
+    margin: 0 auto;  /* Centraliza o item na tela */
+    padding: 20px;  /* Adiciona um espaçamento interno */
+    border: 1px solid #ccc;  /* Adiciona uma borda ao redor do item */
+    border-radius: 6px;  
+  
+    img {
+      max-width: 100%;  /* Faz com que a imagem não ultrapasse a largura do contêiner */
+      height: auto;  /* Garante que a proporção da imagem seja mantida */
+      margin-bottom: 10px;  /* Adiciona espaço abaixo da imagem */
+    }
+  
+    h3 {
+      font-size: 1.2em;  /* Define o tamanho da fonte para o título */
+      margin-bottom: 10px;  /* Adiciona espaço abaixo do título */
+    }
+  
+    p {
+      font-size: 0.6em; 
+    }
+  }

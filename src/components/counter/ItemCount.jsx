@@ -2,35 +2,34 @@ import React, { useState } from 'react';
 import { PiCaretUpBold } from 'react-icons/pi';
 import { PiCaretDownBold } from 'react-icons/pi';
 
+const ItemCount = ({ stock, onAddToCart}) => {
+  const [quantity, setQuantity] = useState(0); // Inicializa count com 0 usando useState
 
-
-const ItemCount = ({ stock }) =>{
-const [count, setCount] = useState(0);
-
-const handleIncrement = () => {
-    if (count < stock) {
-        setCount(count + 1);
+  const handleIncrement = () => {
+    if (quantity < stock) {
+      setQuantity(quantity + 1);
     }
-};
-
-const handleDecrement = () => {
-    if (count > 0) {
-        setCount(count - 1);
-    }
-};
-
-const handleAddToCart = () => {
-    
   };
 
-    return(
-        <div>
-            <div className='counterUp'  onClick={handleIncrement}><PiCaretUpBold/></div>
-            <div className='QuantityItems'>{count}</div>
-            <div className='counterDown'onClick={handleDecrement}><PiCaretDownBold/></div>
-            <button>Adicionar ao Carrinho</button>
-        </div>
-    )
-}
+  const handleDecrement = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  };
 
-export { ItemCount }
+  const handleAddToCart = () => {
+    onAddToCart(quantity); // Emite o evento onAdd com a quantidade
+    setQuantity(0); // Zera o contador
+  };
+
+  return (
+    <div>
+      <div className='counterUp' onClick={handleIncrement}><PiCaretUpBold/></div>
+      <div className='QuantityItems'>{quantity}</div>
+      <div className='counterDown' onClick={handleDecrement}><PiCaretDownBold/></div>
+      <button onClick={handleAddToCart}>Add to shop bag</button>
+    </div>
+  );
+};
+
+export { ItemCount };

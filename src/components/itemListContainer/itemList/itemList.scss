@@ -1,0 +1,42 @@
+.item-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    
+  }
+
+  .item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  
+  .item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .item h3 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .item p {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  
+  .item .price {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }

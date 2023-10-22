@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Item } from '../item';
-import axios from 'axios';
+import { Item } from '../item/Item.jsx';
 import { fetchData } from '../../../services/api.services';
 
 const ItemList = () => {
