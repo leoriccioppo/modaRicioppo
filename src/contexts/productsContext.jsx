@@ -29,7 +29,10 @@ const ProductsProvider = ({ children }) => {
 
     return (
         <ProductsContext.Provider 
-            value={{ products, loading }}>
+            value={{ 
+                products, 
+                loading 
+                }}>
             {children}
         </ProductsContext.Provider>
     );

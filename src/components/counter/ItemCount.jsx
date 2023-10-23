@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { PiCaretUpBold } from 'react-icons/pi';
 import { PiCaretDownBold } from 'react-icons/pi';
+import { useCart } from '../../contexts/cartContext.jsx';
+import { useProducts } from '../../contexts/productsContext.jsx';
 
-const ItemCount = ({ stock, onAddToCart}) => {
+const ItemCount = ({ stock, itemId}) => {
   const [quantity, setQuantity] = useState(0); // Inicializa count com 0 usando useState
+
+  const { onAddToCart } = useCart(); // Obtém a função onAddToCart do contexto de carrinho
+  
+  const { products } = useProducts(); // Obtém a lista de produtos do contexto de produtos
 
   const handleIncrement = () => {
     if (quantity < stock) {
@@ -18,8 +24,9 @@ const ItemCount = ({ stock, onAddToCart}) => {
   };
 
   const handleAddToCart = () => {
-    onAddToCart(quantity); // Emite o evento onAdd com a quantidade
-    setQuantity(0); // Zera o contador
+    const itemDetails = products.find(product => product.id === itemId);
+    onAddToCart(itemDetails, quantity);
+    setQuantity(0);
   };
 
   return (
