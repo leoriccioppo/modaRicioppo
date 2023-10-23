@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Item } from '../item/Item.jsx';
 import { useProducts } from '../../../contexts/productsContext.jsx';
-
+import { Loading } from '../../../components/loading/Loading.jsx';
 
 const ItemList = () => {
   const { products, loading } = useProducts();
@@ -10,7 +10,7 @@ const ItemList = () => {
   return (
     <div className="item-list">
       {loading ? (
-        <p>Carregando dados...</p>
+        <Loading />
       ) : (
         products.map((item) => <Item key={item.id} item={item} />)
       )}

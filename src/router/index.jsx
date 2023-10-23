@@ -5,6 +5,7 @@ import { Eletronics } from "../pages/Products/Eletronics.jsx";
 import { Jewelery } from "../pages/Products/Jewelery.jsx";
 import { WomensClothing } from "../pages/Products/Women.jsx";
 import { MensClothing } from "../pages/Products/Men.jsx";
+import { Cart } from "../pages/Cart/Cart.jsx";
 
 const Routers = () => {
     return (
@@ -16,6 +17,7 @@ const Routers = () => {
                 <Route path="/Jewelery" element={<Jewelery />} />
                 <Route path="/MensClothing" element={<MensClothing />} />
                 <Route path="/WomensClothing" element={<WomensClothing />} />
+                <Route path ="/Cart" element ={<Cart />} />
             </Routes>
         </BrowserRouter>
     );

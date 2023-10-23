@@ -7,8 +7,8 @@ const CartProvider = ({ children }) => {
 
   //itens no carrinho + quantidade
   const onAddToCart = (product, quantity) => {
-    const { id, title, price } = product;
-    const newItem = { id, title, price, quantity };
+    const { id, title, price, image } = product;
+    const newItem = { id, title, price, image, quantity };
   
     const alreadyInCart = cart.find(item => item.id === id);
   
