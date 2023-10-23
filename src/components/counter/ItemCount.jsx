@@ -7,7 +7,7 @@ import { useProducts } from '../../contexts/productsContext.jsx';
 const ItemCount = ({ stock, itemId}) => {
   const [quantity, setQuantity] = useState(0); // Inicializa count com 0 usando useState
 
-  const { onAddToCart } = useCart(); // Obtém a função onAddToCart do contexto de carrinho
+  const { onAddToCart} = useCart(); // Obtém a função onAddToCart do contexto de carrinho
   
   const { products } = useProducts(); // Obtém a lista de produtos do contexto de produtos
 
@@ -25,8 +25,12 @@ const ItemCount = ({ stock, itemId}) => {
 
   const handleAddToCart = () => {
     const itemDetails = products.find(product => product.id === itemId);
-    onAddToCart(itemDetails, quantity);
-    setQuantity(0);
+
+    if (quantity > 0) {
+      onAddToCart(itemDetails, quantity);
+      setQuantity(0);
+    }
+    
   };
 
   return (
@@ -38,5 +42,6 @@ const ItemCount = ({ stock, itemId}) => {
     </div>
   );
 };
+
 
 export { ItemCount };

@@ -5,7 +5,7 @@ const Input = () => {
     const handleInputValue = (event) => {
         setInputValue(event.target.value);
     }
-    console.log(inputValue);
+    
     return (
         <input type="text" value={inputValue} onChange={handleInputValue}></input> 
     );

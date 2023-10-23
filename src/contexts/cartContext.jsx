@@ -5,17 +5,42 @@ const CartContext = createContext();
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
+  //itens no carrinho + quantidade
   const onAddToCart = (product, quantity) => {
-    const { id, title, price } = product; // Extrai as informações necessárias do objeto do produto
-    console.log(`Item ${title} (ID: ${id}) added to cart with quantity: ${quantity} and price: $${price * quantity}`);
-    // Adicione o item ao carrinho, fazendo os cálculos necessários com o preço se necessário
+    const { id, title, price } = product;
+    const newItem = { id, title, price, quantity };
+  
+    const alreadyInCart = cart.find(item => item.id === id);
+  
+    if (!alreadyInCart) {
+      // Se o item não estiver no carrinho, adiciona-o ao carrinho
+      setCart([...cart, newItem]);
+    } else {
+      // Se o item já estiver no carrinho, atualiza a quantidade do item existente
+      setCart(cart.map(item => (item.id === id ? { ...item, quantity: item.quantity + quantity } : item)));
+    }
+  };
+  
+  //itens no carrinho - quantidade 
+  const removeItem = (itemId, quantityToRemove) => {
+    // Remove o item do carrinho e subtrai a quantidade especificada
+    const updatedCart = cart.map(item => (item.id === itemId ? { ...item, quantity: item.quantity - quantityToRemove } : item)).filter(item => item.quantity > 0);
+    setCart(updatedCart);
   };
 
+
+  //remove tudo do carrinho
+  const clear = () => {
+    setCart([]);
+  };
+    
   return (
     <CartContext.Provider 
     value={{ 
         cart, 
-        onAddToCart 
+        onAddToCart,
+        removeItem,
+        clear
         }}
         >
       {children}
