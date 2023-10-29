@@ -6,17 +6,20 @@ import { LoadingProvider } from './contexts/loadingContext'
 import { ProductsProvider} from './contexts/productsContext'
 import { CartProvider } from './contexts/cartContext'
 import { FirebaseProvider } from './firebase/firebaseContext'
+import { AppThemeProvider } from './contexts/themeContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <LoadingProvider>
-      <FirebaseProvider>
-        <ProductsProvider>
-            <CartProvider>            
-              <Routers />            
-            </CartProvider>
-        </ProductsProvider>
-        </FirebaseProvider>
-    </LoadingProvider>
+    <AppThemeProvider>
+      <LoadingProvider>
+        <FirebaseProvider>
+          <ProductsProvider>
+              <CartProvider>            
+                <Routers />            
+              </CartProvider>
+          </ProductsProvider>
+          </FirebaseProvider>
+      </LoadingProvider>
+    </AppThemeProvider>
   </React.StrictMode>
 )
