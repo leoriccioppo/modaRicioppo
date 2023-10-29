@@ -1,6 +1,6 @@
 import axios from "axios";
 // Configurar a baseURL global para todas as solicitações
-axios.defaults.baseURL = "https://fakestoreapi.com";
+axios.defaults.baseURL = import.meta.env.VITE_API_FAKESTORE_URL;
 
 // Função para fazer uma solicitação GET a um endpoint específico
 const fetchData = async (endpoint) => {

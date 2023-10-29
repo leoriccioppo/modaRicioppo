@@ -1,5 +1,6 @@
 import React from 'react';
 import { ItemList } from './itemList/ItemList.jsx';
+import { ItemListFirebase } from './itemList/itemListFirebase.jsx';
 
 const ItemListContainer = () =>{
 
@@ -9,6 +10,7 @@ const ItemListContainer = () =>{
         <div className="item-list-container">
             <h2>Lista de Itens:</h2>
             <ItemList />
+            <ItemListFirebase/>
         </div>
 
        </div>
