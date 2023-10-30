@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import { fetchData } from '../services/api.serviceFakeStore.js';
 import { useLoading } from './loadingContext'; // Importe o hook useLoading
 

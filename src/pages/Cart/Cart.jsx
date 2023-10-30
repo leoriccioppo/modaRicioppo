@@ -1,4 +1,3 @@
-import React from 'react';
 import { useCart } from '../../contexts/cartContext.jsx';
 import { CartItem } from '../../components/cartItem/CartItem.jsx';
 import { Loading } from '../../components/loading/Loading.jsx';

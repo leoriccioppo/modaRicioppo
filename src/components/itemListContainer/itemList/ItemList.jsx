@@ -1,4 +1,3 @@
-import React, { useContext } from 'react';
 import { Item } from '../item/Item.jsx';
 import { useProducts } from '../../../contexts/productsContext.jsx';
 import { Loading } from '../../../components/loading/Loading.jsx';

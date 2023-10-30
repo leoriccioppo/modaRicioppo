@@ -1,4 +1,3 @@
-import React from 'react';
 import { useCart } from '../../contexts/cartContext.jsx';
 
 const CartItem = ({ item }) => {
