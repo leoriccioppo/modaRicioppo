@@ -20,6 +20,20 @@ const LightTheme = createTheme({
             default:'#f7f6f3'         
         }
     },
+
+    MuiCssBaseline: {
+        styleOverrides: {
+          li: {
+            listStyle: 'none',
+            margin: 0,
+            padding: 0,
+          },
+          a: {
+            textDecoration: 'none',
+            color: 'inherit',
+          },
+        },
+      },
 })
 
 export { LightTheme };

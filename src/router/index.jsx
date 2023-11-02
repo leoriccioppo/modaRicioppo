@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "../pages/Home/Home.jsx";
-import { Header } from "../components/header/Header.jsx";
+import { Header } from "../components/header";
 import { Eletronics } from "../pages/Products/Eletronics.jsx";
 import { Jewelery } from "../pages/Products/Jewelery.jsx";
 import { WomensClothing } from "../pages/Products/Women.jsx";

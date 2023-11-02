@@ -20,6 +20,20 @@ const DarkTheme = createTheme({
             default:'#202124'         
         }
     },
+
+    MuiCssBaseline: {
+        styleOverrides: {
+          li: {
+            listStyle: 'none',
+            margin: 0,
+            padding: 0,
+          },
+          a: {
+            textDecoration: 'none',
+            color: 'inherit',
+          },
+        },
+      },
 })
 
 export { DarkTheme };

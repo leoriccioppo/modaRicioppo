@@ -1,5 +1,5 @@
 import { PiShoppingCartSimple } from 'react-icons/pi';
-import { useCart } from '../../contexts/cartContext.jsx';
+import { useCart } from '../../../contexts/cartContext.jsx';
 import { Link } from 'react-router-dom';
 
 const CartWidget = () => {

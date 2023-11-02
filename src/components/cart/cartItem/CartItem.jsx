@@ -1,4 +1,4 @@
-import { useCart } from '../../contexts/cartContext.jsx';
+import { useCart } from '../../../contexts/cartContext.jsx';
 
 const CartItem = ({ item }) => {
   const { id, title, price, quantity, image } = item;

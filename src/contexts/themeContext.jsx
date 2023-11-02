@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from "react";
-import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { DarkTheme, LightTheme } from "../themes";
 import { Box } from "@mui/material";
 
@@ -20,11 +20,11 @@ const AppThemeProvider = ({ children }) => {
             theme, 
             toggleTheme
              }}>
-      <MuiThemeProvider theme={selectedTheme}>
+      <ThemeProvider theme={selectedTheme}>
         <Box width="100vw" height="100vh" bgcolor={selectedTheme.palette.background.default}>
         {children}
         </Box>
-      </MuiThemeProvider>
+      </ThemeProvider>
     </ThemeContext.Provider>
     );
 };

@@ -1,5 +1,5 @@
 import { useCart } from '../../contexts/cartContext.jsx';
-import { CartItem } from '../../components/cartItem/CartItem.jsx';
+import { CartItem } from '../../components/cart/cartItem/CartItem.jsx';
 import { Loading } from '../../components/loading/Loading.jsx';
 
 const Cart = () => {
