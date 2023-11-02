@@ -4,16 +4,20 @@ import { AppBar } from "@mui/material";
 import { Typography, List } from '@mui/material';
 
 
+
 export const AppBarContainer = styled(AppBar)(() => ({
     height: '64px',
     display: 'flex',
     justifyContent: 'center',
-    padding: '4px 8px'
 }));
 
-export const AppBarHeader = styled(Typography)(() => ({
-    
-}));
+export const AppbarHeader = styled(Typography)(() => ({
+    padding: "4px",
+    flexGrow: 1,
+    fontSize: "4em",
+    fontFamily: '"Roboto", "cursive"',
+   
+  }));
 
 export const MyList = styled(List)(({type}) => ({
     display: type === 'row' ? 'flex' : 'block',

@@ -9,8 +9,9 @@ import { AppThemeProvider } from './contexts/themeContext'
 import { DrawerProvider } from './contexts/drawerContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <AppThemeProvider>
-    <React.StrictMode>
+  
+  <React.StrictMode>
+    <AppThemeProvider>
       <LoadingProvider>
         <DrawerProvider>
           <FirebaseProvider>
@@ -22,6 +23,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           </FirebaseProvider>
         </DrawerProvider>
       </LoadingProvider>  
-    </React.StrictMode>
-  </AppThemeProvider>
+    </AppThemeProvider>
+  </React.StrictMode>
 )
