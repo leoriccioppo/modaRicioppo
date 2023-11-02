@@ -20,6 +20,7 @@ function HeaderMobile({ matches }) {
         <IconButton>
           <SearchIcon />
         </IconButton>
+        
       </Toolbar>
     </AppBarContainer>
   );
