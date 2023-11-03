@@ -13,7 +13,8 @@ const Hero = () =>{
 
 
     const settings = {
-        dots: true,
+        dots: false, // Oculta os pontos de navegação
+        arrows: false, // Oculta as setas de navegação
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -24,7 +25,7 @@ const Hero = () =>{
 
     return (
         <HeroContainer> 
-            <Slider {...settings}>
+            <Slider {...settings} >
              <Paper>
              <HeroImage src="../../../../src/assets/images/hero/banner-1.avif" alt="banner"/>
              </Paper>          
