@@ -1,18 +1,24 @@
 import { Item } from '../item/Item.jsx';
-import { useProducts } from '../../../contexts/productsContext.jsx';
+import { useProducts } from '../../../contexts/fakeStoreApiContext.jsx';
+import { useFirebase } from '../../../firebase/firebaseContext.jsx';
+
 import { Loading } from '../../../components/loading/Loading.jsx';
 
 const ItemList = () => {
-  const { products, loading } = useProducts();
+  const { items: firebaseItems, loading: firebaseLoading } = useFirebase();
+  const { products: fakeStoreItems, loading: fakeStoreLoading } = useProducts();
 
+  const combinedItems = [...firebaseItems, ...fakeStoreItems];
+
+  if (firebaseLoading || fakeStoreLoading) {
+    return <Loading />; // Exibe o loading enquanto os dados estão sendo carregados
+  }
 
   return (
-    <div className="item-list">
-      {loading ? (
-        <Loading />
-      ) : (
-        products.map((item) => <Item key={item.id} item={item} />)
-      )}
+    <div >
+      {combinedItems.map((item) => (
+        <Item key={item.id} item={item} />
+      ))}
     </div>
   );
   

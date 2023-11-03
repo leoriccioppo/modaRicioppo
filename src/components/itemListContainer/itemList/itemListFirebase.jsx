@@ -1,7 +1,7 @@
 import { Item } from '../item/Item.jsx';
 import { useFirebase } from '../../../firebase/firebaseContext.jsx'
 import { Loading } from '../../../components/loading/Loading.jsx';
-import { useProducts } from '../../../contexts/productsContext.jsx'
+import { useProducts } from '../../../contexts/fakeStoreApiContext.jsx'
 
 const ItemListFirebase = () =>{
 
@@ -10,13 +10,7 @@ const ItemListFirebase = () =>{
     
 
     return(
-        <div className="item-list">
-            {loading ? (
-        <Loading />
-      ) : (
-        items.map((item) => <Item key={item.id} item={item} />)
-      )}
-        </div>
+        <h1></h1>
     )
 }
 

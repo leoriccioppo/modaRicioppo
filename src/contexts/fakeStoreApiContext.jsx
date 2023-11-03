@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import { fetchData } from '../services/api.serviceFakeStore.js';
-import { useLoading } from './loadingContext'; // Importe o hook useLoading
+import { useLoading } from './loadingContext.jsx'; // Importe o hook useLoading
 
 const ProductsContext = createContext();
 
@@ -16,6 +16,7 @@ const ProductsProvider = ({ children }) => {
             try {
                 const response = await fetchData('/products');
                 setProducts(response);
+                console.log(response)
             } catch(error){
                 console.error('Erro ao obter dados da API:', error);
             } finally {

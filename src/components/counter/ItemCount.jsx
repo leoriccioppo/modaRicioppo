@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PiCaretUpBold } from 'react-icons/pi';
 import { PiCaretDownBold } from 'react-icons/pi';
 import { useCart } from '../../contexts/cartContext.jsx';
-import { useProducts } from '../../contexts/productsContext.jsx';
+import { useProducts } from '../../contexts/fakeStoreApiContext.jsx';
 
 const ItemCount = ({ stock, itemId}) => {
   const [quantity, setQuantity] = useState(0); // Inicializa count com 0 usando useState

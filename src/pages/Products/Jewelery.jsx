@@ -1,4 +1,4 @@
-import { useProducts } from '../../contexts/productsContext.jsx';
+import { useProducts } from '../../contexts/fakeStoreApiContext.jsx';
 import { Item } from '../../components/itemListContainer/item/Item.jsx';
 import { Loading } from '../../components/loading/Loading.jsx';
 const Jewelery = () => {
