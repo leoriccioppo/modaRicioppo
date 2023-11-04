@@ -1,17 +1,21 @@
 import React from 'react';
+import { Box, Button, Container, Grid } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 import { ItemList } from './itemList/ItemList.jsx';
 
 const ItemListContainer = () =>{
 
-    return (
-       <div>
-        
-        <div className="item-list-container">
-            <h2>Lista de Itens:</h2>
-            <ItemList />
-        </div>
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down("md"));
 
-       </div>
+    return (
+       <Box>
+        <Grid >
+
+            <ItemList/>
+        </Grid>
+       </Box>
     )
 }
 

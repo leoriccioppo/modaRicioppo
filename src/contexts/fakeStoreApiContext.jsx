@@ -16,7 +16,6 @@ const ProductsProvider = ({ children }) => {
             try {
                 const response = await fetchData('/products');
                 setProducts(response);
-                console.log(response)
             } catch(error){
                 console.error('Erro ao obter dados da API:', error);
             } finally {

@@ -21,7 +21,7 @@ const AppThemeProvider = ({ children }) => {
             toggleTheme
              }}>
       <ThemeProvider theme={selectedTheme}>
-        <Box width="100vw" height="100vh" bgcolor={selectedTheme.palette.background.default}>
+        <Box width="100vw" height="100%" bgcolor={selectedTheme.palette.background.default}>
         {children}
         </Box>
       </ThemeProvider>
