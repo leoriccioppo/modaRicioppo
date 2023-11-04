@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import CssBaseline from '@mui/material/CssBaseline';
 import {Routers} from './router'
 import { LoadingProvider } from './contexts/loadingContext'
 import { ProductsProvider} from './contexts/fakeStoreApiContext'
@@ -7,6 +8,7 @@ import { CartProvider } from './contexts/cartContext'
 import { FirebaseProvider } from './firebase/firebaseContext'
 import { AppThemeProvider } from './contexts/themeContext'
 import { DrawerProvider } from './contexts/drawerContext'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   
@@ -17,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <FirebaseProvider>
             <ProductsProvider>
                 <CartProvider>            
-                  <Routers />            
+                  <Routers/>            
                 </CartProvider>
             </ProductsProvider>
           </FirebaseProvider>

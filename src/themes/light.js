@@ -3,6 +3,7 @@ import { cyan, yellow } from "@mui/material/colors";
 
 const LightTheme = createTheme({
     palette: {
+        mode: 'light',
         primary: {
             main: yellow[700],
             dark: yellow[800],
@@ -16,10 +17,20 @@ const LightTheme = createTheme({
             contrastText: '#ffffff',
         },
         background: {
-            paper: '#ffffff',
-            default:'#f7f6f3'         
+            paper: 'red',
+            default:'pink',         
         }
-    }
-})
+    },
+
+    components: {
+        MuiModalRoot: {
+          styleOverrides: {
+            root: {
+              height: '100%', // Defina a altura desejada para o modal aqui
+            },
+          },
+        },
+      },
+    });
 
 export { LightTheme };

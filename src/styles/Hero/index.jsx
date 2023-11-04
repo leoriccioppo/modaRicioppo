@@ -1,7 +1,7 @@
 import { Box, Paper } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-export const HeroContainer = styled(Box)(({HeroImage}) => ({
+export const HeroContainer = styled(Box)(() => ({
   width: "100%",
   height: "100%",
   justifyContent: "center",
@@ -19,7 +19,7 @@ export const HeroImage = styled("img")(({ src, theme }) => ({
   width: "100%",
   [theme.breakpoints.down("md")]: {
     width: "100%",
-    height: "100px",
+    height: "300px",
   },
   [theme.breakpoints.down("sm")]: {
     width: "100%",
