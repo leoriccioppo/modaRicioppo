@@ -10,10 +10,15 @@ const ItemListContainer = () =>{
     const matches = useMediaQuery(theme.breakpoints.down("md"));
 
     return (
-       <Box>
-        <Grid >
+       <Box alignItems="center">
+        <Grid 
+        container
+        spacing={{ xs: 2, md: 3 }}
+        justifyContent="center"
+        sx={{  alignItems:"center"}}
+        columns={{ xs: 4, sm: 8, md: 12 }}>
 
-            <ItemList/>
+            <ItemList matches={matches} />
         </Grid>
        </Box>
     )

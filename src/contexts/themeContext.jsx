@@ -2,6 +2,7 @@ import { createContext, useState, useContext } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { DarkTheme, LightTheme } from "../themes";
 import { Box } from "@mui/material";
+import CssBaseline from '@mui/material/CssBaseline';
 
 const ThemeContext = createContext();
 
@@ -21,7 +22,8 @@ const AppThemeProvider = ({ children }) => {
             toggleTheme
              }}>
       <ThemeProvider theme={selectedTheme}>
-        <Box width="100vw" height="100%" bgcolor={selectedTheme.palette.background.default}>
+        <CssBaseline />
+        <Box height="100%" bgcolor={selectedTheme.palette.background.default}>
         {children}
         </Box>
       </ThemeProvider>

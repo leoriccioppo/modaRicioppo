@@ -11,20 +11,18 @@ export const HeroContainer = styled(Box)(() => ({
 }));
 
 export const HeroImage = styled("img")(({ src, theme }) => ({
-  src: `url(${src})`,
   backgroundImage: `url(${src})`,
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
   width: "100%",
+  height: "80%",
   [theme.breakpoints.down("md")]: {
     width: "100%",
-    height: "300px",
+    height: "100%",
   },
   [theme.breakpoints.down("sm")]: {
     width: "100%",
-    height: "300px",
+    height: "80%",
   },
 }));
-
-

@@ -6,12 +6,11 @@ import { WomensClothing } from "../pages/Products/Women.jsx";
 import { MensClothing } from "../pages/Products/Men.jsx";
 import { Cart } from "../pages/Cart/Cart.jsx";
 import { Box, Container } from "@mui/system";
-import CssBaseline from '@mui/material/CssBaseline';
+
 
 const Routers = () => {
     return (
         <BrowserRouter>
-        <CssBaseline />
             <Routes>                
                 <Route path="/" element={<Home />} />
                 <Route path="/Eletronics" element={<Eletronics />} />

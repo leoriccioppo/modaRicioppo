@@ -1,18 +1,22 @@
 import styled from "@emotion/styled";
-import { Paper } from "@mui/material";
+import { Paper, Box } from "@mui/material";
 import Card from '@mui/material/Card';
 
 export const Product = styled(Card)(({ theme }) => ({
-    width: "50%",
+    Width: "100%",
     overflowX: "hidden",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     margin: "auto",
-    
     flexDirection: "column",
     [theme.breakpoints.up("md")]: {
-      position: "relative",
+      width: "100%",
+      heigth:"80%"
+    }, 
+    [theme.breakpoints.up("xs")]: {
+      width: "80%",
+      heigth:"70%"
     },
     
   }));
@@ -20,9 +24,15 @@ export const Product = styled(Card)(({ theme }) => ({
   export const ProductImage = styled("img")(({ src, theme }) => ({
     src: `url(${src})`,
     width: "100%",
-    padding: '10px',
-    [theme.breakpoints.down("md")]: {
-      width: "80%", 
-      padding: '24px',
-    },
+    height: "100%",
+    padding: "8px",
+    borderRadius:"8px",
+  }));
+
+  export const ProductDataWrapper = styled(Box)(({theme}) => ({
+    padding: 4,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+
   }));
