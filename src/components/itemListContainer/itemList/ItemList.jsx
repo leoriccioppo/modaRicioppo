@@ -1,25 +1,16 @@
 import { Item } from '../item/Item.jsx';
-import { useProducts } from '../../../contexts/fakeStoreApiContext.jsx';
-import { useFirebase } from '../../../firebase/firebaseContext.jsx';
-import { Loading } from '../../../components/loading/Loading.jsx';
 import { Grid } from "@mui/material";
+import { useProducts } from '../../../contexts/productsContext.jsx'
 
-let combinedItems = [];
 
 const ItemList = ({matches}) => {
-  const { items: firebaseItems, loading: firebaseLoading } = useFirebase();
-  const { products: fakeStoreItems, loading: fakeStoreLoading } = useProducts();
 
-  combinedItems = [...firebaseItems, ...fakeStoreItems];
+  const { allItems } = useProducts();
 
-
-  if (firebaseLoading || fakeStoreLoading) {
-    return <Loading />; // Exibe o loading enquanto os dados estão sendo carregados
-  }
 
   return (
     <>
-      {combinedItems.map((item) => (
+      {allItems.map((item) => (
         <Grid item key={item.id} xs={12} sm={4} md={4} display="flex" flexDirection={'column'} alignItems="center" justifyContent ="center">
         <Item item={item} matches={matches} />
         </Grid>
@@ -30,4 +21,4 @@ const ItemList = ({matches}) => {
 };
 
 
-export { ItemList, combinedItems };
+export { ItemList };

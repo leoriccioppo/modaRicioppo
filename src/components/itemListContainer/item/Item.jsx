@@ -3,6 +3,7 @@ import { Product, ProductImage, ProductDataWrapper } from '../../../styles/Produ
 import Typography from '@mui/material/Typography'
 import { Paper, Box, Container } from "@mui/material";
 import { ActionsBar } from '../../actionsBar/ActionsBar';
+import { handleAddToCart } from '../../../utils/button';
 const Item = ({ item, matches}) => {
   const { id, title, category, description, price, image, stock } = item;
 
@@ -22,7 +23,7 @@ const Item = ({ item, matches}) => {
 
       <Typography variant={matches ? "subtitle1" : "h6"}>Price: ${price}</Typography>
 
-      <ActionsBar itemStock={itemStock} id={id} />
+      <ActionsBar itemStock={itemStock} id={id} onClick={handleAddToCart} />
 
       </ProductDataWrapper>   
     </Product>

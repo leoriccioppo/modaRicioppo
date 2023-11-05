@@ -1,11 +1,12 @@
 
-import { useCart } from '../../contexts/';
-import { combinedItems } from '../../components/itemListContainer/itemList/ItemList';
+import { useCart } from '../../contexts/cartContext';
+import { useProducts } from '../../contexts/productsContext';
 
 export const handleAddToCart = (itemId, quantity) => {
     const { onAddToCart, setQuantity } = useCart(); // Certifique-se de que onAddToCart e setQuantity estão disponíveis no contexto
   
-    const item = combinedItems.find(item => item.id === itemId);
+    const { allItems } = useProducts();
+    const item = allItems.find(item => item.id === itemId);
   
     if (quantity > 0) {
       onAddToCart(item, quantity);
