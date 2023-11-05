@@ -1,8 +1,8 @@
 import React from 'react';
-import { ItemCount } from '../../counter/ItemCount';
 import { Product, ProductImage, ProductDataWrapper } from '../../../styles/Products';
 import Typography from '@mui/material/Typography'
 import { Paper, Box, Container } from "@mui/material";
+import { ActionsBar } from '../../actionsBar/ActionsBar';
 const Item = ({ item, matches}) => {
   const { id, title, category, description, price, image, stock } = item;
 
@@ -22,7 +22,7 @@ const Item = ({ item, matches}) => {
 
       <Typography variant={matches ? "subtitle1" : "h6"}>Price: ${price}</Typography>
 
-      <ItemCount stock={itemStock} itemId={id} />
+      <ActionsBar itemStock={itemStock} id={id} />
 
       </ProductDataWrapper>   
     </Product>
