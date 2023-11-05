@@ -4,6 +4,7 @@ import Card from '@mui/material/Card';
 
 export const Product = styled(Card)(({ theme }) => ({
     Width: "100%",
+    height:"100%",
     overflowX: "hidden",
     display: "flex",
     justifyContent: "center",
