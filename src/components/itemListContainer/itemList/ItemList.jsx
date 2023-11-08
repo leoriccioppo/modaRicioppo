@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import { Item } from '../item/Item.jsx';
 import { Grid } from "@mui/material";
 import { useProducts } from '../../../contexts/productsContext.jsx';
@@ -29,9 +29,9 @@ const ItemList = ({matches}) => {
       item={item} 
       matches={matches} 
       handleClickUp={() => increaseCounterShop({ item })}
-      handleClickDown={() => handleDecreaseCounterShop(item)}
-      quantity={quantityItem} 
+      handleClickDown={() => handleDecreaseCounterShop({item})}
       onClick={onAddToCart} 
+      quantity={item.quantity}
       message="Add to cart"
     />
   </Grid>

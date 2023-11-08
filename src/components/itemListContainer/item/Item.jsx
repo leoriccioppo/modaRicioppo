@@ -3,11 +3,11 @@ import { Product, ProductImage, ProductDataWrapper } from '../../../styles/Produ
 import Typography from '@mui/material/Typography'
 import { Paper, Box, Container } from "@mui/material";
 import { ActionsBar } from '../../actionsBar/ActionsBar';
-import { useProducts } from '../../../contexts/productsContext.jsx';
 
 
 
-const Item = ({ item, matches, handleClickUp, handleClickDown, quantity, onClick, message}) => {
+
+const Item = ({ item, matches, handleClickUp, handleClickDown, onClick, message , quantity}) => {
   
   const { image, title, description, price, stock} = item;
  

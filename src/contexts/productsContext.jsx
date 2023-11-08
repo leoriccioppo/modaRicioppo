@@ -8,7 +8,7 @@ const ProductsContext = createContext();
 const ProductsProvider = ({children})=>{
 
     const [allItems, setAllItems] = useState([]);
-    const [quantityItem, setQuantity] = useState(0);
+    const [quantity ,setQuantity] = useState({});
 
     useEffect(() => {
     const getAllItems = async () => {
@@ -23,14 +23,27 @@ const ProductsProvider = ({children})=>{
         // Adicionar a propriedade 'stock' aos itens que não a possuem
         const itemsWithStock = mergedItems.map(item => {
           if (!item.hasOwnProperty('stock')) {
-            return { ...item, stock: 10 }; // Valor padrão para a propriedade 'stock'
+            return { ...item, stock: 10 }; 
           }
           return item;
         });
 
+        // Inicializar a propriedade 'quantity' com 0 aos itens que não a possuem
+      for (const item of itemsWithStock) {
+        if (!item.hasOwnProperty('quantity')) {
+          item.quantity = 0;
+        }
+      }
         // Atualizar o estado com os dados combinados
+        const initialQuantities = itemsWithStock.reduce((quantity, item) => {
+          quantity[item.id] = item.quantity;
+          return quantity;
+        }, {});
+
         setAllItems(itemsWithStock);
+        setQuantity(initialQuantities);
         console.table(itemsWithStock);
+
       } catch (error) {
         console.error('Error fetching products data:', error);
       }
@@ -41,26 +54,17 @@ const ProductsProvider = ({children})=>{
 
   const increaseCounterShop = ({ item }) => {
     console.log('Item inside increaseCounterShop:', item);
-    if (item && item.stock && quantityItem >= item.stock) {
+    if ( item.quantity >= item.stock) {
       console.log('Item or stock is undefined or quantity exceeds stock.');
     } else {
-      setQuantity(quantityItem + 1);
+      setQuantity(item.quantity ++);
       console.log('clicou +');
     }
   };
   
-
-  const handleDecreaseCounterShop = (item) => {
-    if (quantityItem > 1) {
-      setQuantity(quantityItem - 1);
-      console.log('clicou -');
-    }
-  }
-  
-  const decreaseCounterShop = () => {
-    if (quantityItem > 1) {
-      setQuantity(quantityItem - 1);
-      console.log('clicou -');
+    const decreaseCounterShop = ({item}) => {
+    if ( item.quantity > 0){
+      setQuantity(item.quantity --);
     }
   };
 
@@ -68,11 +72,9 @@ const ProductsProvider = ({children})=>{
         <ProductsContext.Provider 
         value={{
             allItems,
-            quantityItem,
             setQuantity,
             increaseCounterShop,
             decreaseCounterShop,
-            handleDecreaseCounterShop
             }}>
 
             {children}
