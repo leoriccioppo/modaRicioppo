@@ -1,20 +1,78 @@
 import { createContext, useState, useEffect, useContext } from 'react';
-import { useFakeStore } from './fakeStoreApiContext.jsx';
-import { useFirebase } from '../firebase/firebaseContext.jsx';
+import { fetchDataFromFirebase } from '../services/firebase/serviceFirebase';
+import { fetchDataFakeStore } from '../services/api.serviceFakeStore'
+
 
 const ProductsContext = createContext();
 
 const ProductsProvider = ({children})=>{
 
-    const { items: firebaseItems } = useFirebase();
-    const { products: fakeStoreItems } = useFakeStore();
+    const [allItems, setAllItems] = useState([]);
+    const [quantityItem, setQuantity] = useState(0);
 
-    const allItems = [...firebaseItems, ...fakeStoreItems];
+    useEffect(() => {
+    const getAllItems = async () => {
+      console.log('useEffect foi chamado');
+      try {
+        const firebaseItems = await fetchDataFromFirebase(); // Obter dados do Firebase
+        const fakeStoreProducts = await fetchDataFakeStore('/products'); // Obter dados do FakeStore
+
+        // Combinar dados do Firebase e FakeStore
+        const mergedItems = [...firebaseItems, ...fakeStoreProducts];
+
+        // Adicionar a propriedade 'stock' aos itens que não a possuem
+        const itemsWithStock = mergedItems.map(item => {
+          if (!item.hasOwnProperty('stock')) {
+            return { ...item, stock: 10 }; // Valor padrão para a propriedade 'stock'
+          }
+          return item;
+        });
+
+        // Atualizar o estado com os dados combinados
+        setAllItems(itemsWithStock);
+        console.table(itemsWithStock);
+      } catch (error) {
+        console.error('Error fetching products data:', error);
+      }
+    };
+
+     getAllItems();// Chamar a função para buscar dados quando o componente for montado
+  }, []); // Array de dependências vazio para garantir que seja chamado apenas uma vez
+
+  const increaseCounterShop = ({ item }) => {
+    console.log('Item inside increaseCounterShop:', item);
+    if (item && item.stock && quantityItem >= item.stock) {
+      console.log('Item or stock is undefined or quantity exceeds stock.');
+    } else {
+      setQuantity(quantityItem + 1);
+      console.log('clicou +');
+    }
+  };
+  
+
+  const handleDecreaseCounterShop = (item) => {
+    if (quantityItem > 1) {
+      setQuantity(quantityItem - 1);
+      console.log('clicou -');
+    }
+  }
+  
+  const decreaseCounterShop = () => {
+    if (quantityItem > 1) {
+      setQuantity(quantityItem - 1);
+      console.log('clicou -');
+    }
+  };
 
     return (
         <ProductsContext.Provider 
         value={{
-            allItems
+            allItems,
+            quantityItem,
+            setQuantity,
+            increaseCounterShop,
+            decreaseCounterShop,
+            handleDecreaseCounterShop
             }}>
 
             {children}

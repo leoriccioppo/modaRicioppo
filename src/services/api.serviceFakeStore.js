@@ -3,7 +3,8 @@ import axios from "axios";
 axios.defaults.baseURL = import.meta.env.VITE_API_FAKESTORE_URL;
 
 // Função para fazer uma solicitação GET a um endpoint específico
-const fetchData = async (endpoint) => {
+const fetchDataFakeStore = async (endpoint) => {
+  console.log('fakeStore foi chamado');
   try {
     const response = await axios.get(endpoint);
     return response.data; // Retorna os dados da resposta
@@ -13,5 +14,5 @@ const fetchData = async (endpoint) => {
   }
 };
 
-export { fetchData };
+export { fetchDataFakeStore };
 
