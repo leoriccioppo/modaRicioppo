@@ -3,8 +3,6 @@ import { Item } from '../item/Item.jsx';
 import { Grid } from "@mui/material";
 import { useProducts } from '../../../contexts/productsContext.jsx';
 import{ useCart } from '../../../contexts/cartContext';
-import { increaseCounterShop, decreaseCounterShop } from '../../../utils/counter'
-
 
 const ItemList = ({matches}) => {
 
