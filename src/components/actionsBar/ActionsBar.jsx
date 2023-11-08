@@ -4,21 +4,21 @@ import IconButton from '@mui/material/IconButton';
 import { ItemCount} from '../counter/ItemCount';
 
 
-const ActionsBar = ({itemStock, id}) => {
+const ActionsBar = ({handleClickUp, handleClickDown, quantity, handleClickButton, message}) => {
     
     return (
         <Box display="flex" flexDirection="column"  alignItems="center">
             <Stack direction="row" spacing={4}>
 
-            <ItemCount stock={itemStock} itemId={id} />
-            
+            <ItemCount handleClickUp={handleClickUp} handleClickDown={handleClickDown} quantity={quantity} />
+
             <IconButton>
             <InfoOutlinedIcon/>
             </IconButton>
             
             </Stack>
 
-            <Button variant="contained" >Add to cart</Button>
+            <Button variant="contained" onClick={handleClickButton} >{message}</Button>
         </Box>
     )
 }

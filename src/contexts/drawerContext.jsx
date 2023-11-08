@@ -3,17 +3,16 @@ import { createContext, useState, useContext, useCallback } from "react";
 const DrawerContext = createContext();
 
 const DrawerProvider = ({ children }) => {
-
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const toggleDrawer = useCallback(()=> {
-      setIsDrawerOpen(prevState => !prevState);
-      }, []);
+  const [drawerOpen, setDrawerOpen] = useState(false)
+  
+  const DrawerWidth = '50vw';
     
     return (
         <DrawerContext.Provider 
         value={{ 
-            isDrawerOpen, 
-            toggleDrawer
+          drawerOpen, 
+          setDrawerOpen,
+          DrawerWidth
              }}>
             {children}
     </DrawerContext.Provider>

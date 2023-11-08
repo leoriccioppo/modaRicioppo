@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import { AppBar } from "@mui/material";
-import { Typography, List } from '@mui/material';
-
+import { Typography, List, IconButton } from '@mui/material';
+import { useDrawer } from '../../contexts/drawerContext'
 
 
 export const AppBarContainer = styled(AppBar)(() => ({
@@ -19,3 +19,10 @@ export const MyList = styled(List)(({type}) => ({
     justifyContent: 'center',
     alignItens: 'center'
 }));
+
+export const DrawerCloseButton = styled(IconButton)(() => ({
+    position: 'absolute',
+
+    left: useDrawer().DrawerWidth,
+    zIndex: 6999,      
+  }));

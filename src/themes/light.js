@@ -1,5 +1,6 @@
 import { createTheme } from "@mui/material";
 import { cyan, yellow } from "@mui/material/colors";
+import { useDrawer } from "../contexts/drawerContext"
 
 const LightTheme = createTheme({
     palette: {
@@ -31,6 +32,17 @@ const LightTheme = createTheme({
           },
         },
       },
+      MuiDrawer: {
+        styleOverrides: ({ useDrawer }) => ({
+          paper: {
+            width: useDrawer().DrawerWidth,
+            background: 'primary',
+            color: 'secondary',
+            borderRadius: '0px 100px 0px 0px',
+            borderRight: `1px solid pink`
+          }
+        })
+      }
     });
 
 export { LightTheme };

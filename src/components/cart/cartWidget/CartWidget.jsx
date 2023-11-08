@@ -1,13 +1,8 @@
 import { PiShoppingCartSimple } from 'react-icons/pi';
-import { useCart } from '../../../contexts/cartContext.jsx';
 import { Link } from 'react-router-dom';
 
-const CartWidget = () => {
+const CartWidget = ({totalItems}) => {
 
-  const { cart } = useCart();
-
-   // Calcula a quantidade total de itens no carrinho
-   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
   
   return (
     <Link to="/Cart"><div className='icon'>

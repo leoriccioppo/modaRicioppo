@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Product, ProductImage, ProductDataWrapper } from '../../../styles/Products';
 import Typography from '@mui/material/Typography'
 import { Paper, Box, Container } from "@mui/material";
 import { ActionsBar } from '../../actionsBar/ActionsBar';
-import { handleAddToCart } from '../../../utils/button';
-const Item = ({ item, matches}) => {
-  const { id, title, category, description, price, image, stock } = item;
+import { useProducts } from '../../../contexts/productsContext.jsx';
 
-  const itemStock = stock !== undefined ? stock : 10;
+
+
+const Item = ({ item, matches, handleClickUp, handleClickDown, quantity, onClick, message}) => {
+  
+  const { image, title, description, price, stock} = item;
+ 
 
   return (
     <Product>
@@ -23,7 +26,11 @@ const Item = ({ item, matches}) => {
 
       <Typography variant={matches ? "subtitle1" : "h6"}>Price: ${price}</Typography>
 
-      <ActionsBar itemStock={itemStock} id={id} onClick={handleAddToCart} />
+      <ActionsBar handleClickUp={handleClickUp} 
+      handleClickDown={handleClickDown}
+      quantity={quantity} 
+      onClick={onClick} 
+      message={message}/>
 
       </ProductDataWrapper>   
     </Product>

@@ -4,31 +4,17 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Box, Typography } from '@mui/material';
 
-const ItemCount = ({ stock}) => {
-  const [quantity, setQuantity] = useState(0); // Inicializa count com 0 usando useState
-
-  const handleIncrement = () => {
-    if (quantity < stock) {
-      setQuantity(quantity + 1);
-    }
-  };
-
-  const handleDecrement = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-
+const ItemCount = ({handleClickUp, handleClickDown, quantity}) => {
+  
   return (
     <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center">
-      <IconButton style={{ padding: '0' }} onClick={handleIncrement} color="primary" aria-label="Arrow Up">
+      <IconButton style={{ padding: '0' }} onClick={handleClickUp} color="primary" aria-label="Arrow Up">
       <ArrowDropUpIcon />
     </IconButton>
 
-    <Typography variant="p" component="div">{quantity}</Typography>
+    <Typography variant="body2" component="div">{quantity}</Typography>
 
-    <IconButton style={{ padding: '0' }} onClick={handleDecrement} color="primary" aria-label="Arrow Down">
+    <IconButton style={{ padding: '0' }} onClick={handleClickDown} color="primary" aria-label="Arrow Down">
       <ArrowDropDownIcon />
     </IconButton>
     </Box>
